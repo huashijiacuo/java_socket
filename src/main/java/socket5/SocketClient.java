@@ -25,22 +25,6 @@ public class SocketClient {
         System.out.println("client主线程执行完毕！");
     }
 
-    public void testClinet() throws InterruptedException {
-        ClientRunnable runnable = new ClientRunnable();
-        List<Thread> threads = new ArrayList<>();
-        int n = 1;
-        while (n++ < 100) {
-            Thread thread = new Thread(runnable, "thread-" + n);
-            thread.start();
-            threads.add(thread);
-        }
-        for (Thread thread : threads) {
-            thread.join();
-        }
-//        System.out.println("客户端socket连接失败的线程数：" + runnable.getConnectCount());
-        System.out.println("------------------client主程序执行结束！-------------------");
-    }
-
     private class ClientRunnable implements Runnable{
 //        private volatile int connectCount = 0;
         @Override
